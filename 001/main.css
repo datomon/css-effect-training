@@ -1,0 +1,54 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.container
+{
+	margin-top: 150px;
+	position: relative;
+	width: 360px;
+	height: 640px;
+	background: rgba(0, 0, 0, .1);
+	transform: rotate(-30deg) skew(25deg) scale(.8);
+	/* 2D變形 transform */
+	/* 旋轉 rotate(-30deg)：從X軸向上逆時針30度(參數為正數則向下順時針)，看左下角點與X軸比較好理解 */
+	/* 傾斜 skew(25deg)：從向橫向傾斜25度(若只有一個參數，第二參數縱向則為0)，看右下角點與Y軸比較好理解 */
+	/* 放大縮小 scale(.8)：元素的大小為原本的 0.8倍(就是原本大小的80%) */
+}
+.container img
+{
+	position: absolute;  /*讓所有 img 都重疊在一起*/
+	width: 100%;
+	transition: .5s;  /* 漸變 0.5秒 */
+}
+.container:hover img:nth-child(4)  /* 第4個是最上面的(越後面寫出的元素預設會蓋在最上面) */
+{
+	opacity: 1;
+	transform: translate(160px, -160px);
+	/* 2D變形 transform */
+	/* 位移 translate(160px, -160px)：讓元素X軸向右位移160px、Y軸向上位移160px(參數為正數則向下)*/
+	/* 注意，因為外框的 container 已經傾斜了，所以 X軸也要移，若X軸設為 0 會只有向左上的效果 */
+}
+.container:hover img:nth-child(3)
+{
+	opacity: 0.8;
+	transform: translate(120px, -120px);
+}
+.container:hover img:nth-child(2)
+{
+	opacity: 0.6;
+	transform: translate(80px, -80px);
+}
+.container:hover img:nth-child(1)
+{
+	opacity: 0.4;
+	transform: translate(40px, -40px);
+}
+
+
